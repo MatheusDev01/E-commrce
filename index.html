@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="/js/index.js"></script>
+
+
+    <div class="campo_logo">logo</div>
+    <div class="campo_pesquisa">pesquisa</div>
+    <div class="campo_login_cadastro">
+        <button id="login" onclick="exibelogins()">login</button>
+
+    <div style = 'display:none;' id="gSignInWrapper">
+        <div id="customBtn" class="customGPlusSignIn">
+            <span class="icon"></span>
+            <span class="buttonText">Google</span>
+        </div>
+    </div>
+    <div id="name"></div>
+    
+        
+    </div>
+</head>
+<body>
+    <h1>Cadastro de produtos</h1>
+    <form action="http://localhost:3000/enviar-formulario" method="post" onsubmit="msg_prod_cad_sucesso()">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+        
+        <label for="qtd">Quantidade:</label><br>
+        <input type="number" id="qtd" name="qtd" required><br><br>
+        
+        <label for="preco">Preço:</label><br>
+        <input type="number" id="preco" name="preco" required><br><br>
+        
+        <label for="cod_vendedor">Código do vendedor:</label><br>
+        <input type="number" id="cod_vendedor" name="cod_vendedor" required><br><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <h2>Dados do Banco de Dados</h2>
+     <button onclick="buscarDadosDoBanco()">Ver produtos cadastrados</button><br><br>
+    <table id="tabela-dados">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>qtd</th>
+                <th>preco</th>
+                <th>cod_vendedor</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados do banco de dados serão inseridos aqui -->
+        </tbody>
+    </table>
+
+
+<script>startApp();</script>
+</body>
+</html>

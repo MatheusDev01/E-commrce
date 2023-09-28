@@ -1,6 +1,9 @@
 const express = require('express');
 const mysql = require('mysql');
-require('dotenv').config();
+const dotenv = require('dotenv');
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname+'/test.env')})
+
 
 const app = new express();
 const port = 3000; // Porta do servidor
@@ -8,11 +11,13 @@ const port = 3000; // Porta do servidor
 const apph = new express();
 const porth = 5000;
 
+
 // Configuração da conexão com o banco de dados MySQL
 const db = mysql.createConnection(process.env.DB_ACESS);
 
 //trecho adicionado para evitar erro de politica do cors já que a url do site não bate com o da solicitação
 const cors=require("cors");
+const { config, configDotenv } = require('dotenv');
 const corsOptions ={
    origin:'*', 
    credentials:true,            //access-control-allow-credentials:true
@@ -20,7 +25,7 @@ const corsOptions ={
 }
 app.use(cors(corsOptions))
 
-
+//conectar ao banco de dados
 db.connect((err) => {
     if (err) {
       throw err;
@@ -28,7 +33,7 @@ db.connect((err) => {
     console.log('Conectado ao banco de dados MySQL');
   });
 
-  // Middleware para processar dados do formulário
+// Middleware para processar dados do formulário
 app.use(express.urlencoded({ extended: false }));
 
 // Rota para lidar com o envio do formulário
@@ -47,7 +52,7 @@ app.post('/enviar-formulario', (req, res) => {
   });
 
 
-  app.post('/excluir-produto', (req, res) => {
+app.post('/excluir-produto', (req, res) => {
     const { cod_vendedor } = req.body;
   
     const sql = 'DELETE FROM `matheusdb`.`Produtos` WHERE (`cod_produto` = ?);';

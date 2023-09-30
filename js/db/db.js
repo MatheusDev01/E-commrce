@@ -2,20 +2,10 @@ const express = require('express');
 const mysql = require('mysql');
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname+'/config.env')})
-const https = require('https');
-const fs = require('fs');
 
-const privateKey = fs.readFileSync(__dirname+'/localhost-key.pem', 'utf8');
-const certificate = fs.readFileSync(__dirname+'/localhost.pem', 'utf8');
-
-
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-};
 
 const app = new express();
-const port = 3000;
+const port = 10000;
 
 const db = mysql.createConnection(process.env.DB_ACESS);
 
@@ -82,11 +72,11 @@ app.get('/dados-do-banco', (req, res) => {
     });
   });
 
-  const httpsServerbd = https.createServer(credentials, app);
 
-  httpsServerbd.listen({
+
+  app.listen({
     host:'0.0.0.0',
-    port: 5000 || port,
+    port: 10000 || port,
   }, () => {
     console.log(`Servidor HTTPS rodando na porta ${port}`);
   });

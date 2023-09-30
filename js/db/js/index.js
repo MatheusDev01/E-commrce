@@ -8,7 +8,7 @@ function msg_prod_excluido_sucesso () {
 
 // Função para buscar e exibir os dados do banco de dados
 function buscarDadosDoBanco () {
-    fetch('http://localhost:3000/dados-do-banco')
+    fetch('https://localhost:3000/dados-do-banco')
         .then(response => response.json())
         .then(data => {
             const tabela = document.getElementById('tabela-dados');
@@ -18,7 +18,7 @@ function buscarDadosDoBanco () {
             data.forEach(item => {
                 const row = document.createElement('tr');
                 row.innerHTML = `<td>${item.cod_produto}</td><td>${item.tipo}</td><td>${item.qtd}</td><td>${item.preco}</td><td>${item.cod_vendedor}</td><td><button>Editar</button></td><td>
-                <form action="http://localhost:3000/excluir-produto" method="post" onsubmit="msg_prod_excluido_sucesso()">
+                <form action="https://localhost:3000/excluir-produto" method="post" onsubmit="msg_prod_excluido_sucesso()">
                 <input style="display:none;" type="number" id="cod_vendedor" name="cod_vendedor" value="${item.cod_produto}">
                 <input type="submit" value="Excluir">
                 </form>

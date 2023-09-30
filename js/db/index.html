@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="/js/index.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+
+
 
 
     <div class="campo_logo">logo</div>
@@ -27,7 +30,7 @@
 </head>
 <body>
     <h1>Cadastro de produtos</h1>
-    <form action="http://localhost:3000/enviar-formulario" method="post" onsubmit="msg_prod_cad_sucesso()">
+    <form action="https://localhost:3000/enviar-formulario" method="post" onsubmit="msg_prod_cad_sucesso()">
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome" required><br><br>
         

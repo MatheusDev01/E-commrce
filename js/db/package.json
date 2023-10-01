@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "web":{"client_id":"629244222367-9rc7h0o9fqondat3an2oo5jtemqfv85o.apps.googleusercontent.com",
+  "project_id":"e-comerce-400123",
+  "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+  "token_uri":"https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+  "client_secret":"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",
+  "redirect_uris":["https://localhost","http://localhost:3000","https://localhost:5000","http://localhost","https://ecommerce-sit1.onrender.com","https://ecommerce-projeto.onrender.com"],
+  "javascript_origins":["http://localhost:3000","https://localhost","https://localhost:5000","http://localhost","https://ecommerce-sit1.onrender.com","https://ecommerce-projeto.onrender.com"]},
   "scripts": {
     "test": "node app.js HTTPS=TRUE"
   },

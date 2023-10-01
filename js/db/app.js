@@ -27,12 +27,12 @@ apph.get('/js/index.js', (req, res) => {
 apph.listen({
     host:'0.0.0.0',
     port: 10000 || porth,
-  }, () => {
+    }, () => {
     console.log(`Servidor HTTPS rodando na porta ${porth}`);
   });
 //apph.listen(porth, () => {
-//    console.log(`Servidor html rodando na porta ${porth}`);
-  //});
+//console.log(`Servidor html rodando na porta ${porth}`);
+//});
 
 
 

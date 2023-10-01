@@ -8,19 +8,29 @@
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="/js/index.js"></script>
     <script src="https://accounts.google.com/gsi/client" async></script>
-
-
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 
 
     <div class="campo_logo">logo</div>
     <div class="campo_pesquisa">pesquisa</div>
     <div class="campo_login_cadastro">
-        <button id="login" onclick="exibelogins()">login</button>
+    <button id="login" onclick="exibelogins()">login</button>
 
     <div style = 'display:none;' id="gSignInWrapper">
-        <div id="customBtn" class="customGPlusSignIn">
-            <span class="icon"></span>
-            <span class="buttonText">Google</span>
+        <div id="g_id_onload"
+            data-client_id="629244222367-9rc7h0o9fqondat3an2oo5jtemqfv85o.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="popup"
+            data-callback="LoginSucesso"
+            data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+            data-type="icon"
+            data-shape="circle"
+            data-theme="filled_black"
+            data-text="signin"
+            data-size="large">
         </div>
     </div>
     <div id="name"></div>
@@ -29,6 +39,7 @@
     </div>
 </head>
 <body>
+    <div id="CadastroProdutos" style = 'display:none;'>
     <h1>Cadastro de produtos</h1>
     <form action="https://ecommerce-projeto.onrender.com/enviar-formulario" method="post" onsubmit="msg_prod_cad_sucesso()">
         <label for="nome">Nome:</label><br>
@@ -45,7 +56,8 @@
 
         <input type="submit" value="Cadastrar">
     </form>
-
+    </div>
+    <div id="TabelaProdutos" style = 'display:none;'>
     <h2>Dados do Banco de Dados</h2>
      <button onclick="buscarDadosDoBanco()">Ver produtos cadastrados</button><br><br>
     <table id="tabela-dados">
@@ -63,8 +75,6 @@
             <!-- Os dados do banco de dados serão inseridos aqui -->
         </tbody>
     </table>
-
-
-<script>startApp();</script>
+    </div>
 </body>
 </html>

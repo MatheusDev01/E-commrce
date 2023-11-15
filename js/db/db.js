@@ -41,7 +41,7 @@ app.post('/enviar-formulario', (req, res) => {
       if (err) {
         throw err;
       }
-      console.log('Dados inseridos no banco de dados');
+      alert('Produto cadastrados com sucesso!');
     });
   });
 

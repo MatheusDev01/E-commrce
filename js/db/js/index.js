@@ -1,3 +1,5 @@
+import jwt_decode from 'jwt-decode';
+
 function msg_prod_cad_sucesso () {
     alert("Produto cadastrado com sucesso")
 }
